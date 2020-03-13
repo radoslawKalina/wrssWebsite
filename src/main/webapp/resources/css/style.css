@@ -1,0 +1,78 @@
+body {
+	margin: 0;
+}
+
+footer {
+	text-align: center;
+	margin-top: 5px;
+}
+
+a {
+	text-decoration: none;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.error {
+	color: red;
+}
+
+.form-container {
+	margin-left: 15px;
+}
+
+.panel-container {
+	margin: 0 auto;
+	
+}
+
+/* ======================= */
+
+.container {
+	min-height: 300px;
+}
+
+.main-header {
+	font-size: 100px;
+	text-align: center;
+}
+
+.main-nav {
+	font-size: 1.15em;
+}
+
+.main-nav-panel {
+	font-size: 1em;
+}
+
+.left-nav {
+	float: left;
+	padding: 5px 25px;
+}
+
+.right-nav {
+	float: right;
+	padding: 5px 25px;
+}
+
+.main-nav a {
+	padding: 0 8px;
+}
+
+.link-button { 
+    background: none;
+    border: none;
+    color: #0066ff;
+    padding: 0 8px;
+    font-size: 1em;
+    display: inline;
+    margin-top: 25px;   
+}
+
+.panel-header {
+	text-align: center;
+}
