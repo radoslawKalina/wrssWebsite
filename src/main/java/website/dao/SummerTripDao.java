@@ -10,11 +10,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 
-import website.entity.Rajd;
+import website.entity.SummerTrip;
 import website.entity.User;
 
 @Repository
-public class RajdDao {
+public class SummerTripDao {
 	
 	@Autowired
 	public SessionFactory sessionFactory;
@@ -44,33 +44,33 @@ public class RajdDao {
 	}
 
 	
-	public void addSign(Rajd rajd) {
+	public void add(SummerTrip summerTrip) {
 		
 		Session session = sessionFactory.getCurrentSession();
 		
 		User user = session.get(User.class, getCurrentUserId());
-		rajd.setUser(user);
+		summerTrip.setUser(user);
 		
-		session.save(rajd);
+		session.save(summerTrip);
 	}
 
-	public List<Rajd> getMySign() {
+	public List<SummerTrip> getMySign() {
 		
 		Session session = sessionFactory.getCurrentSession();
-		Query<Rajd> query = session.createQuery("from Rajd where user_id=:id", Rajd.class);
+		Query<SummerTrip> query = session.createQuery("from SummerTrip where user_id=:id", SummerTrip.class);
 		query.setParameter("id", getCurrentUserId());
 		
-		List<Rajd> mySign = query.getResultList();
+		List<SummerTrip> mySign = query.getResultList();
 		
 		return mySign;
 	}
 
-	public List<Rajd> getAllSign() {
+	public List<SummerTrip> getAllSign() {
 		
 		Session session = sessionFactory.getCurrentSession();
 		
-		Query<Rajd> query = session.createQuery("from Rajd order by lastName", Rajd.class);
-		List<Rajd> allSign = query.getResultList();
+		Query<SummerTrip> query = session.createQuery("from SummerTrip order by lastName", SummerTrip.class);
+		List<SummerTrip> allSign = query.getResultList();
 
 		return allSign;
 	}

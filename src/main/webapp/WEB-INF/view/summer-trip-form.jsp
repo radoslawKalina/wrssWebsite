@@ -9,9 +9,9 @@
 </head>
 <body>
 <div class="form-container">
-	<h2>Rajd Sign Form</h2>
+	<h2>Summer Trip Register Form</h2>
 
-    <form:form action="processRajdForm" modelAttribute="rajd">
+    <form:form action="/processSummerTripForm" modelAttribute="summerTripValidation">
 	
 		<p>First name: </p>
 		<p><form:errors path="firstName" cssClass="error" /></p>
@@ -33,7 +33,7 @@
 		<p><form:errors path="shirtSize" cssClass="error" /></p>
 		<p>
 			<form:select path="shirtSize">
-				<form:options items="${rajd.shirtSizes}"/>
+				<form:options items="${summerTripValidation.shirtSizes}"/>
 			</form:select>
 		</p>
 		  

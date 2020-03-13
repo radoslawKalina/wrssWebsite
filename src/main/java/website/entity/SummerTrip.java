@@ -12,8 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="rajd")
-public class Rajd {
+@Table(name="summer_trip")
+public class SummerTrip {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -43,11 +43,11 @@ public class Rajd {
 	@JoinColumn(name="user_id")
 	private User user;
 	
-	public Rajd() {
+	public SummerTrip() {
 		
 	}
 
-	public Rajd(String firstName, String lastName, String email, String indexNumber, String shirtSize,
+	public SummerTrip(String firstName, String lastName, String email, String indexNumber, String shirtSize,
 			String transportOption) {
 		this.firstName = firstName;
 		this.lastName = lastName;

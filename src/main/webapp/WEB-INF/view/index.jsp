@@ -14,8 +14,9 @@
 	<nav class="main-nav">
 
 		<c:if test="${pageContext.request.userPrincipal.name != null}">
-			<p class="left-nav">You are logged in as: <security:authentication property="principal.username" /></p>
+			<p class="left-nav"><security:authentication property="principal.username" /></p>
 			<p class="right-nav">
+				<a href="${pageContext.request.contextPath}/panel/">Panel</a>
 				<form:form action="${pageContext.request.contextPath}/logout" method="POST">
 					<input type="submit" value="Logout" class="link-button right-nav" />
 				</form:form>
@@ -32,7 +33,7 @@
 	</nav>
 	</div>
 	
-	<div class="clearfix"></div>
+	  <div class="clearfix"></div> 
 	
 	<div class="container">
 		<h2 class="main-header">WRSS WZ</h2>

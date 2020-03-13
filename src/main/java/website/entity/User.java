@@ -49,7 +49,7 @@ public class User {
 	
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="user",
 			cascade= { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
-	private List<Rajd> rajdSignList;
+	private List<SummerTrip> rajdSignList;
 	
 	public User() {
 	}

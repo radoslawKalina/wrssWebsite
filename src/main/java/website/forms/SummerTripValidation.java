@@ -8,11 +8,11 @@ import javax.validation.constraints.Size;
 
 import website.validation.ValidEmail;
 
-public class RajdSignValidation {
+public class SummerTripValidation {
 	
 	private LinkedHashMap<String, String> shirtSizes;
 	
-	public RajdSignValidation() {
+	public SummerTripValidation() {
 		
 		shirtSizes = new LinkedHashMap<>();
 		shirtSizes.put("S", "S");

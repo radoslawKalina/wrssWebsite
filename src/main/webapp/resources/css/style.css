@@ -1,10 +1,7 @@
+/* ======= GENERAL ======= */
+
 body {
 	margin: 0;
-}
-
-footer {
-	text-align: center;
-	margin-top: 5px;
 }
 
 a {
@@ -17,36 +14,32 @@ a {
     display: table;
 }
 
-.error {
-	color: red;
-}
+/* ======= FORMS ======= */
 
 .form-container {
 	margin-left: 15px;
 }
 
-.panel-container {
-	margin: 0 auto;
-	
+.error {
+	color: red;
 }
 
-/* ======================= */
+/* ====== HEADER ========== */
 
-.container {
-	min-height: 300px;
-}
-
-.main-header {
-	font-size: 100px;
-	text-align: center;
+.nav-container {
+	margin-top: 0;
 }
 
 .main-nav {
 	font-size: 1.15em;
+	min-height: 70px;
+	border-bottom: solid 2px #FE8F05;
+	background: #FEB366;
+	padding: 1px;
 }
 
-.main-nav-panel {
-	font-size: 1em;
+.main-nav a {
+	padding: 0 8px;
 }
 
 .left-nav {
@@ -59,20 +52,79 @@ a {
 	padding: 5px 25px;
 }
 
-.main-nav a {
-	padding: 0 8px;
-}
-
 .link-button { 
     background: none;
     border: none;
     color: #0066ff;
     padding: 0 8px;
-    font-size: 1em;
+    font-size: 0.93em;
     display: inline;
     margin-top: 25px;   
 }
 
-.panel-header {
+/* ===== FOOTER ========= */
+
+footer {
 	text-align: center;
+	margin-top: 5px;
+	border-top: solid 2px #FE8F05;
+	background: #FEB366;
+	min-height: 25px;
 }
+
+footer small {
+	display: inline-block;
+	padding-top: 5px;
+}
+
+/* ======= HOMEPAGE ======== */
+
+.container {
+	min-height: 520px;
+}
+
+.main-header {
+	font-size: 100px;
+	text-align: center;
+	margin-top: 0;
+	padding-top: 100px;
+}
+
+/* ===== USER PANEL ======== */
+
+.panel-container {
+	min-height: 460px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.panel-header {
+	margin: 60px 0 80px;;
+	font-size: 2em;
+}
+
+.panel-button {
+	height: 120px;
+	width: 200px;
+	margin: 0 20px;
+	border: solid 2px #FE8F05;
+	background: #FEB366;
+}
+
+/* ===== SUMMER PANEL ======== */
+
+.summer-container {
+	min-height: 460px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.summer-header {
+	margin: 60px 0 60px;;
+	font-size: 2em;
+}
+
+.summer-container h4 {
+	margin-left: -70%;
+}
+
