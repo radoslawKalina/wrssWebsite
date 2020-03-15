@@ -34,43 +34,31 @@
 	
 		<h2 class="panel-header">Welcome in student panel on WRSS website</h2>
 		
-		<input type="button" value="Winter Trip (Not Available)" 
-			onclick="window.location.href='${pageContext.request.contextPath}/panel/'; return false;" class="panel-button" />
+		<div class="buttons-container">
+			<input type="button" value="Winter Trip (Not Available)" 
+				onclick="window.location.href='${pageContext.request.contextPath}/panel/'; return false;" class="panel-button" />
 			
-		<input type="button" value="Students Prom (Not Available)" 
-			onclick="window.location.href='${pageContext.request.contextPath}/panel/'; return false;" class="panel-button" />
+			<input type="button" value="Students Prom (Not Available)" 
+				onclick="window.location.href='${pageContext.request.contextPath}/panel/'; return false;" class="panel-button" />
 			
-		<input type="button" value="Summer Trip" 
-			onclick="window.location.href='summerTrip'; return false;" 
-			class="panel-button" />
-
-		
-		<!--
-		<h5>People signed by you:</h5>
-		
-		<table>
-			<tr>
-				<th>Imie</th>
-				<th>Nazwisko</th>
-				<th>Email</th>
-				<th>Numer indexu</th>
-				<th>Koszulka</th>
-				<th>Transport</th>
-			</tr>
-			<c:forEach var="trip" items="${savedByUser}">
-				<tr>
-					<td>${trip.firstName}</td>
-					<td>${trip.lastName}</td>
-					<td>${trip.email}</td>
-					<td>${trip.indexNumber}</td>
-					<td>${trip.shirtSize}</td>
-					<td>${trip.transportOption}</td>
-				</tr>
-			</c:forEach>
+			<input type="button" value="Summer Trip" 
+				onclick="window.location.href='summerTrip'; return false;" 
+				class="panel-button" />
+		</div>
+		<security:authorize access="hasAnyRole('SUPER_ADMIN', 'ADMIN')">
+		<div class="buttons-container">
+			<div class="clearfix"></div>
+			<input type="button" value="Admin Panel (Not&nbsp;Available)" 
+				onclick="window.location.href='${pageContext.request.contextPath}/panel/'; return false;" class="panel-button" />
 			
-		</table>
-		-->
-		
+			<input type="button" value="Admin Panel (Not&nbsp;Available)" 
+				onclick="window.location.href='${pageContext.request.contextPath}/panel/'; return false;" class="panel-button" />
+			
+			<input type="button" value="Summer Trip Admin Panel" 
+				onclick="window.location.href='${pageContext.request.contextPath}/panel/admin/summerTrip'; return false;" 
+				class="panel-button" />
+		</div>
+		</security:authorize>
 	</div>
 	
 	<footer>

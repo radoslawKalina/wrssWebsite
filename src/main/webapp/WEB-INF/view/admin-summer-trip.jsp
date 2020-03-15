@@ -33,15 +33,13 @@
 	<div class="summer-container">
 	
 		<div class="text-center">
-			<h2 class="summer-header">Summer Trip</h2>
+			<h2 class="summer-header">Summer Trip - Admin Panel</h2>
 		</div>
 		
-	<input type="button" value="Sign up for a trip" 
-		onclick="window.location.href='summerTripRegisterForm'; return false;" class="click-button" />
+	<input type="button" value="Change Paid Status" 
+		onclick="window.location.href='changePaidStatus'; return false;" class="click-button" />	
 		
-	<h3 class="summer-registered">Registered people:</h3>
-	
-	
+	<h3 class="summer-registered">All Registered people:</h3>
 	
 	<table class="element-center">
 		<tr>
@@ -54,13 +52,13 @@
 			<th>Paid</th>
 			<th>Action</th>
 		</tr>
-		<c:forEach var="trip" items="${userSummerTripList}">
+		<c:forEach var="trip" items="${summerTripList}">
 		
-		<c:url var="update" value="updateEntry">
+		<c:url var="update" value="updateEntryAdmin">
 			<c:param name="id" value="${trip.id}"/>
 		</c:url>
 		
-		<c:url var="delete" value="deleteEntry">
+		<c:url var="delete" value="deleteEntryAdmin">
 			<c:param name="id" value="${trip.id}"/>
 		</c:url>
 		
@@ -82,6 +80,9 @@
 		</c:forEach>
 		
 	</table>
+		
+	<h5>${shirtSizes}</h5>
+	
 	</div>
 	
 	<footer>

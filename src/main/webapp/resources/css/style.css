@@ -14,6 +14,14 @@ a {
     display: table;
 }
 
+.text-center {
+	text-align: center;
+}
+
+.element-center {
+	margin: 0 auto;
+}
+
 /* ======= FORMS ======= */
 
 .form-container {
@@ -90,7 +98,7 @@ footer small {
 	padding-top: 100px;
 }
 
-/* ===== USER PANEL ======== */
+/* ===== PANEL ======== */
 
 .panel-container {
 	min-height: 460px;
@@ -109,22 +117,73 @@ footer small {
 	margin: 0 20px;
 	border: solid 2px #FE8F05;
 	background: #FEB366;
+	white-space: normal;
+    -webkit-appearance: none;
 }
 
-/* ===== SUMMER PANEL ======== */
+.buttons-container {
+	margin-bottom: 40px;
+}
+
+/* ===== SUMMER PANEL & CHANGE PAID ======== */
 
 .summer-container {
-	min-height: 460px;
-	text-align: center;
-	margin: 0 auto;
+	min-height: 410px;
+	margin-bottom: 50px;
 }
 
 .summer-header {
-	margin: 60px 0 60px;;
+	margin: 60px 0 40px;;
 	font-size: 2em;
+	display: block;
 }
 
 .summer-container h4 {
 	margin-left: -70%;
 }
+
+.click-button {
+	border: 1px solid #666; 
+	border-radius: 5px; 
+	padding: 4px; 
+	font-size: 12px;
+	font-weight: bold;
+	width: 150px; 
+	padding: 5px 10px; 
+	margin-bottom: 15px;
+	background: #FEB366;
+	margin-left: 50px;
+}
+
+.change-paid-button {
+	margin-top: 20px;
+	float: right;
+	margin-right: 12%;
+}
+
+.summer-registered {
+	margin-left: 50px;
+}
+
+table {   
+	border-collapse:collapse;
+	border: 1px solid gray;
+	font-family: Tahoma,Verdana,Segoe,sans-serif;
+	width:85%;
+}
+ 
+th {
+	border-bottom:1px solid gray;
+	background:none repeat scroll 0 0 #FEB366;
+	padding:10px;
+	color: #FFFFFF;
+}
+
+tr {
+	border-top:1px solid gray;
+	text-align:center;	
+}
+ 
+tr:nth-child(even) {background: #FFFFFF}
+tr:nth-child(odd) {background: #BBBBBB}	
 

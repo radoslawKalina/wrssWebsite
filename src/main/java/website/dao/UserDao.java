@@ -37,7 +37,14 @@ public class UserDao {
 		}
 		
 		return user;
-	}	
+	}
 	
-
+	public User getUserById(int id) {
+		
+		Session session = sessionFactory.getCurrentSession();
+		User user = session.get(User.class, id);
+		
+		return user;
+	}
+	
 }

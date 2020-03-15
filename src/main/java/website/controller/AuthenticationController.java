@@ -47,16 +47,6 @@ public class AuthenticationController {
 	public String processRegistration(
 			@Valid @ModelAttribute("userValidation") UserValidation userValidation, BindingResult bindingResult) {
 		
-		/*
-		Another solution for user allready in database problem:
-		  
-		String email = userValidation.getEmail();
-		
-		if (userService.getUser(email) != null) {
-			return "redirect:/registration?user_exist";
-		}
-		*/
-		
 		if (bindingResult.hasErrors()) {
 			return "registration-form";
 		} else {

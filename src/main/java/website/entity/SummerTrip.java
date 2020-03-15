@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -37,11 +38,14 @@ public class SummerTrip {
 	
 	@Column(name="transport")
 	private String transportOption;
-	
+
 	@ManyToOne(fetch=FetchType.LAZY, 
 			cascade= { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
 	@JoinColumn(name="user_id")
 	private User user;
+	
+	@OneToOne(mappedBy="summerTrip", cascade=CascadeType.ALL)
+	private Paid paid;
 	
 	public SummerTrip() {
 		
@@ -120,4 +124,14 @@ public class SummerTrip {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	public Paid getPaid() {
+		return paid;
+	}
+
+	public void setPaid(Paid paid) {
+		this.paid = paid;
+	}
+	
+	
 }

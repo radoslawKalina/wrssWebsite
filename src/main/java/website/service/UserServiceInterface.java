@@ -13,4 +13,6 @@ public interface UserServiceInterface extends UserDetailsService {
 
 	void registerUser(@Valid UserValidation userValidation);
 
+	String getCurrentUserEmail();
+
 }

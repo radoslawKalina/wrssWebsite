@@ -11,8 +11,24 @@
 <div class="form-container">
 	<h2>Summer Trip Register Form</h2>
 
-    <form:form action="/processSummerTripForm" modelAttribute="summerTripValidation">
+	<c:if test="${param.id != null}">
+		<c:url var="action" value="processSummerTripForm">
+			<c:param name="update" value="${param.id}"/>
+		</c:url>
+	</c:if>
 	
+	<c:if test="${param.id == null}">
+		<c:url var="action" value="processSummerTripForm">
+			<c:param name="update" value="0"/>
+		</c:url>
+	</c:if>
+
+    <form:form action="${action}" modelAttribute="summerTripValidation">
+		
+		<c:if test="${param.error == 1}">
+			<i class=error>You try to use incorrect data. Try again!</i>
+		</c:if>
+			
 		<p>First name: </p>
 		<p><form:errors path="firstName" cssClass="error" /></p>
 		<p><form:input path="firstName"/></p>
@@ -49,7 +65,7 @@
 	
 	</form:form> 
 	
-	<p><a href="${pageContext.request.contextPath}/">Back to homepage</a></p>
+	<p><a href="${pageContext.request.contextPath}/panel/summerTrip">Back to Panel</a></p>
 </div>
 </body>
 </html>

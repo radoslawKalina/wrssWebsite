@@ -44,7 +44,6 @@ public class SummerTripValidation {
 	@NotNull(message="is required")
 	private String transportOption;
 
-	
 	public LinkedHashMap<String, String> getShirtSizes() {
 		return shirtSizes;
 	}
@@ -102,3 +101,4 @@ public class SummerTripValidation {
 	}
 
 }
+

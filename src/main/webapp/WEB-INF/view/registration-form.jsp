@@ -36,7 +36,6 @@
 	
 		<input type="submit" value="Register" />
 	
-	
 	</form:form>
 	
 	<p><a href="${pageContext.request.contextPath}/">Back to homepage</a></p>
