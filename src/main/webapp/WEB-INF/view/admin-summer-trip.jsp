@@ -37,7 +37,12 @@
 		</div>
 		
 	<input type="button" value="Change Paid Status" 
-		onclick="window.location.href='changePaidStatus'; return false;" class="click-button" />	
+		onclick="window.location.href='changePaidStatus'; return false;" class="click-button" />
+		
+	<input type="button" value="Change Paid Status" 
+		onclick="window.location.href='${pageContext.request.contextPath}/downloadCSV'; return false;" 
+		class="click-button" />
+	
 		
 	<h3 class="summer-registered">All Registered people:</h3>
 	
@@ -81,7 +86,20 @@
 		
 	</table>
 		
-	<h5>${shirtSizes}</h5>
+	<h3 class="summer-registered">T-shirts:</h3>
+	
+	<table class="shirts-table">
+		<tr>
+			<th>Size</th>
+			<th>Count</th>
+		</tr>
+		<c:forEach var="size" items="${sizeCount}">
+		<tr>
+			<td>${size.key}</td>
+			<td>${size.value}</td>
+		</tr>
+		</c:forEach>
+	</table>
 	
 	</div>
 	

@@ -1,6 +1,8 @@
 package website.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -41,8 +43,17 @@ public class SummerTripAdminController {
 			shirtSizes.add(trip.getShirtSize());
 		}
 		
+		@SuppressWarnings("serial")
+		LinkedHashMap<String, Integer> sizesCount = new LinkedHashMap<String, Integer>() {{
+			put("S", Collections.frequency(shirtSizes, "S"));
+			put("M", Collections.frequency(shirtSizes, "M"));
+			put("L", Collections.frequency(shirtSizes, "L"));
+			put("XL", Collections.frequency(shirtSizes, "XL"));
+		}};
+		
 		model.addAttribute("summerTripList", summerTripList);
 		model.addAttribute("shirtSizes", shirtSizes);
+		model.addAttribute("sizeCount", sizesCount);
 		
 		return "admin-summer-trip";
 	}

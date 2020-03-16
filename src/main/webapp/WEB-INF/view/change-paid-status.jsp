@@ -39,11 +39,12 @@
 
 		<form:form action="processPaidStatusChange" modelAttribute="${paidForm}">
 
-			<table class="element-center">
+			<table class="element-center table-paid-status">
 				<tr>
 					<th>Imie</th>
 					<th>Nazwisko</th>
 					<th>Paid</th>
+					<th>Action</th>
 				</tr>
 				<c:forEach items="${paidForm.paidList}" var="paid" varStatus="status">
 				<input type="hidden" name="paidList[${status.index}].id" value="${paid.id}"/>
@@ -52,7 +53,20 @@
 				<tr>
 					<td>${paid.summerTrip.firstName}</td>
 					<td>${paid.summerTrip.lastName}</td>
-					<td><input name="paidList[${status.index}].paid" value="${paid.paid}"/></td>
+					<td>${paid.paid}</td>
+					
+					<c:if test="${paid.paid == 'NO'}">
+					<td>NO:<input type="radio" name="paidList[${status.index}].paid" 
+					value="${paid.paid}" ${paid.paid == 'NO' ? 'checked' : ''} />
+						YES:<input type="radio" name="paidList[${status.index}].paid" value="YES"/>
+					</td>
+					</c:if>
+					<c:if test="${paid.paid == 'YES'}">
+					<td>NO:<input type="radio" name="paidList[${status.index}].paid" value="NO"/>
+						YES:<input type="radio" name="paidList[${status.index}].paid" 
+						value="${paid.paid}" ${paid.paid == 'YES' ? 'checked' : ''} />
+					</td>
+					</c:if>
 				</tr>
 				</c:forEach>	
 			</table>
