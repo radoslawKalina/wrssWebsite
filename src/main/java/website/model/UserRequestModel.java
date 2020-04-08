@@ -1,4 +1,4 @@
-package website.forms;
+package website.model;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -8,7 +8,7 @@ import website.validation.UserExist;
 import website.validation.ValidEmail;
 
 @PasswordMatch(first="password", second="confirmPassword")
-public class UserValidation {
+public class UserRequestModel {
 	
 	@NotNull(message=" is required")
 	@ValidEmail

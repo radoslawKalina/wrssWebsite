@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="paid")
-public class Paid {
+public class PaidEntity {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -24,7 +24,7 @@ public class Paid {
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="summer_trip_id")
-	private SummerTrip summerTrip;
+	private SummerTripEntity summerTrip;
 
 	public int getId() {
 		return id;
@@ -42,19 +42,19 @@ public class Paid {
 		this.paid = paid;
 	}
 
-	public Paid() {
+	public PaidEntity() {
 		
 	}
 
-	public Paid(String paid) {
+	public PaidEntity(String paid) {
 		this.paid = paid;
 	}
 
-	public SummerTrip getSummerTrip() {
+	public SummerTripEntity getSummerTrip() {
 		return summerTrip;
 	}
 
-	public void setSummerTrip(SummerTrip summerTrip) {
+	public void setSummerTrip(SummerTripEntity summerTrip) {
 		this.summerTrip = summerTrip;
 	}
 	

@@ -39,7 +39,7 @@
 	<input type="button" value="Change Paid Status" 
 		onclick="window.location.href='changePaidStatus'; return false;" class="click-button" />
 		
-	<input type="button" value="Change Paid Status" 
+	<input type="button" value="Download CSV" 
 		onclick="window.location.href='${pageContext.request.contextPath}/downloadCSV'; return false;" 
 		class="click-button" />
 	
@@ -74,7 +74,7 @@
 			<td>${trip.indexNumber}</td>
 			<td>${trip.shirtSize}</td>
 			<td>${trip.transportOption}</td>
-			<td>${trip.paid.paid}</td>
+			<td>${trip.paid}</td>
 			<td>
 				<a href="${update}">Update</a> |
 				<a href="${delete}"

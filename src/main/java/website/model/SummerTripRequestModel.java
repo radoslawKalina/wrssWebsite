@@ -1,4 +1,4 @@
-package website.forms;
+package website.model;
 
 import java.util.LinkedHashMap;
 
@@ -8,40 +8,39 @@ import javax.validation.constraints.Size;
 
 import website.validation.ValidEmail;
 
-public class SummerTripValidation {
-	
+public class SummerTripRequestModel {
+
 	private LinkedHashMap<String, String> shirtSizes;
-	
-	public SummerTripValidation() {
-		
+
+	public SummerTripRequestModel() {
+
 		shirtSizes = new LinkedHashMap<>();
 		shirtSizes.put("S", "S");
 		shirtSizes.put("M", "M");
 		shirtSizes.put("L", "L");
 		shirtSizes.put("XL", "XL");
 	}
-	
-	
-	@NotNull(message="is required")
-	@Size(min=2, message=" is required")
+
+	@NotNull(message = "is required")
+	@Size(min = 2, message = " is required")
 	private String firstName;
-	
-	@NotNull(message="is required")
-	@Size(min=2, message=" is required")
+
+	@NotNull(message = "is required")
+	@Size(min = 2, message = " is required")
 	private String lastName;
-	
-	@NotNull(message="is required")
+
+	@NotNull(message = "is required")
 	@ValidEmail
 	private String email;
-	
-	@NotNull(message="is required")
-	@Pattern(regexp="\\d{6}", message="Enter an index number")
+
+	@NotNull(message = "is required")
+	@Pattern(regexp = "\\d{6}", message = "Enter an index number")
 	private String indexNumber;
-	
-	@NotNull(message="is required")
+
+	@NotNull(message = "is required")
 	private String shirtSize;
-	
-	@NotNull(message="is required")
+
+	@NotNull(message = "is required")
 	private String transportOption;
 
 	public LinkedHashMap<String, String> getShirtSizes() {
@@ -101,4 +100,3 @@ public class SummerTripValidation {
 	}
 
 }
-

@@ -12,7 +12,7 @@
 <div class="form-container">
 	<h2>Registration Form</h2>
 
-	<form:form action="processRegistration" modelAttribute="userValidation">
+	<form:form action="processRegistration" modelAttribute="userModel">
 	
 		<p>First name: </p>
 		<p><form:errors path="firstName" cssClass="error" /></p>

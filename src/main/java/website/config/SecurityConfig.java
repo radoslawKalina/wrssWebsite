@@ -10,14 +10,14 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import website.service.UserServiceInterface;
+import website.service.UserService;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
-	private UserServiceInterface userService;
+	private UserService userService;
 	
     @Autowired
     private CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
@@ -52,12 +52,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Bean
 	public DaoAuthenticationProvider authenticationProvider() {
+		
 		DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
+		
 		auth.setUserDetailsService(userService);
 		auth.setPasswordEncoder(passwordEncoder());
+		
 		return auth;
 	}
-	
 	
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {

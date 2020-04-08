@@ -54,7 +54,7 @@
 			<th>Paid</th>
 			<th>Action</th>
 		</tr>
-		<c:forEach var="trip" items="${userSummerTripList}">
+		<c:forEach var="trip" items="${userRecords}">
 		
 		<c:url var="update" value="updateEntry">
 			<c:param name="id" value="${trip.id}"/>
@@ -71,7 +71,7 @@
 			<td>${trip.indexNumber}</td>
 			<td>${trip.shirtSize}</td>
 			<td>${trip.transportOption}</td>
-			<td>${trip.paid.paid}</td>
+			<td>${trip.paid}</td>
 			<td>
 				<a href="${update}">Update</a> |
 				<a href="${delete}"

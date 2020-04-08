@@ -1,26 +1,23 @@
-package website.csv;
+package website.dto;
 
-public class SummerTripRecord {
-	
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String indexNumber;
-    private String transportOption;
-    private String paid;
-    
-    public SummerTripRecord() {
-    	
-    }
+public class SummerTripDto {
 
-	public SummerTripRecord(String firstName, String lastName, String email, String indexNumber, String transportOption,
-			String paid) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.indexNumber = indexNumber;
-		this.transportOption = transportOption;
-		this.paid = paid;
+	private int id;
+	private String firstName;
+	private String lastName;
+	private String email;
+	private String indexNumber;
+	private String shirtSize;
+	private String transportOption;
+	private UserDto user;
+	private PaidDto paid;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getFirstName() {
@@ -55,6 +52,14 @@ public class SummerTripRecord {
 		this.indexNumber = indexNumber;
 	}
 
+	public String getShirtSize() {
+		return shirtSize;
+	}
+
+	public void setShirtSize(String shirtSize) {
+		this.shirtSize = shirtSize;
+	}
+
 	public String getTransportOption() {
 		return transportOption;
 	}
@@ -63,14 +68,20 @@ public class SummerTripRecord {
 		this.transportOption = transportOption;
 	}
 
-	public String getPaid() {
+	public UserDto getUser() {
+		return user;
+	}
+
+	public void setUser(UserDto user) {
+		this.user = user;
+	}
+
+	public PaidDto getPaid() {
 		return paid;
 	}
 
-	public void setPaid(String paid) {
+	public void setPaid(PaidDto paid) {
 		this.paid = paid;
 	}
-    
-    
 
 }

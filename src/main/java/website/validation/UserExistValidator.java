@@ -5,12 +5,12 @@ import javax.validation.ConstraintValidatorContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import website.service.UserServiceInterface;
+import website.service.UserService;
 
 public class UserExistValidator implements ConstraintValidator<UserExist, String> {
 
 	@Autowired
-	private UserServiceInterface userService;
+	private UserService userService;
 	
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {

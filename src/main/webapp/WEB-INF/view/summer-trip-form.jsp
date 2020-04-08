@@ -23,7 +23,7 @@
 		</c:url>
 	</c:if>
 
-    <form:form action="${action}" modelAttribute="summerTripValidation">
+    <form:form action="${action}" modelAttribute="summerTripRequestModel">
 		
 		<c:if test="${param.error == 1}">
 			<i class=error>You try to use incorrect data. Try again!</i>
@@ -49,7 +49,7 @@
 		<p><form:errors path="shirtSize" cssClass="error" /></p>
 		<p>
 			<form:select path="shirtSize">
-				<form:options items="${summerTripValidation.shirtSizes}"/>
+				<form:options items="${summerTripRequestModel.shirtSizes}"/>
 			</form:select>
 		</p>
 		  

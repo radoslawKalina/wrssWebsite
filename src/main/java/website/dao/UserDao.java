@@ -6,45 +6,46 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import website.entity.User;
-
+import website.entity.UserEntity;
 
 @Repository
 public class UserDao {
-	
+
 	@Autowired
 	private SessionFactory sessionFactory;
-	
-	public void registerUser(User user) {
-		
+
+	public UserEntity getUser(String email) {
+
 		Session session = sessionFactory.getCurrentSession();
-		session.save(user);
-		
-	}
-	
-	public User getUser(String email) {
-		
-		Session session = sessionFactory.getCurrentSession();
-		
-		Query<User> userQuery = session.createQuery("from User where email=:mail", User.class);
+
+		Query<UserEntity> userQuery = session.createQuery("from UserEntity where email=:mail", UserEntity.class);
 		userQuery.setParameter("mail", email);
-		
-		User user = null;
+
+		UserEntity user = null;
+
 		try {
 			user = userQuery.getSingleResult();
+
 		} catch (Exception exc) {
 			user = null;
+
 		}
-		
 		return user;
 	}
-	
-	public User getUserById(int id) {
-		
+
+	public UserEntity getUserById(int id) {
+
 		Session session = sessionFactory.getCurrentSession();
-		User user = session.get(User.class, id);
 		
-		return user;
+		return session.get(UserEntity.class, id);
 	}
-	
+
+	public void registerUser(UserEntity userEntity) {
+
+		Session session = sessionFactory.getCurrentSession();
+		
+		session.save(userEntity);
+
+	}
+
 }

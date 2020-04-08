@@ -8,125 +8,118 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import website.entity.Paid;
-import website.entity.SummerTrip;
-import website.entity.User;
-import website.service.UserServiceInterface;
+import website.entity.PaidEntity;
+import website.entity.SummerTripEntity;
+import website.entity.UserEntity;
+import website.service.UserService;
 
 @Repository
 public class SummerTripDao {
-	
+
 	@Autowired
 	public SessionFactory sessionFactory;
-	
+
 	@Autowired
-	public UserServiceInterface userService;
+	public UserService userService;
 	
-	public int getCurrentUserId() {
-		
-		User user = userService.getUser(userService.getCurrentUserEmail());
-		return user.getId();
-	}
-	
-	public void addRecord(SummerTrip summerTrip) {
-		
-		Session session = sessionFactory.getCurrentSession();
-		
-		User user = session.get(User.class, getCurrentUserId());
-		summerTrip.setUser(user);
-		
-		Paid paid = new Paid("NO");
-		paid.setSummerTrip(summerTrip);
-		
-		session.save(paid);
-	}
-	
-	public void updateRecord(SummerTrip summerTrip, int id) {
-		
-		Session session = sessionFactory.getCurrentSession();
-		
-		User user = session.get(User.class, getCurrentUserId());
-		summerTrip.setUser(user);
-		
-		session.update(summerTrip);
-	}
-	
-	public void updateRecord(SummerTrip summerTrip, int id, User user) {
-		
-		Session session = sessionFactory.getCurrentSession();
-		
-		summerTrip.setUser(user);
-		
-		session.update(summerTrip);
-	}
-	
-	public SummerTrip getRecord(int id) {
-		
-		Session session = sessionFactory.getCurrentSession();
-		SummerTrip summerTrip = session.get(SummerTrip.class, id);
-		
-		return summerTrip;
-	}
+	public List<SummerTripEntity> getAllRecords() {
 
-	public List<SummerTrip> getUserRecords() {
-		
 		Session session = sessionFactory.getCurrentSession();
-		Query<SummerTrip> query = session.createQuery("from SummerTrip where user_id=:id", SummerTrip.class);
-		query.setParameter("id", getCurrentUserId());
-		
-		List<SummerTrip> userRecords = query.getResultList();
-		
-		return userRecords;
-	}
 
-	public List<SummerTrip> getAllRecords() {
-		
-		Session session = sessionFactory.getCurrentSession();
-		
-		Query<SummerTrip> query = session.createQuery("from SummerTrip order by lastName", SummerTrip.class);
-		List<SummerTrip> allRecords = query.getResultList();
+		Query<SummerTripEntity> query = session.createQuery(
+				"from SummerTripEntity order by lastName", SummerTripEntity.class);
+		List<SummerTripEntity> allRecords = query.getResultList();
 
 		return allRecords;
 	}
 	
-	public List<SummerTrip> getPaidRecords() {
-		
+	public List<SummerTripEntity> getPaidRecords() {
+
 		Session session = sessionFactory.getCurrentSession();
-		
-		Query<SummerTrip> query = session.createQuery("from SummerTrip summerTrip where summerTrip.paid.paid=:paid",
-				SummerTrip.class);
+
+		Query<SummerTripEntity> query = session.createQuery(
+				"from SummerTripEntity summerTrip where summerTrip.paid.paid=:paid", SummerTripEntity.class);
 		query.setParameter("paid", "YES");
-		
-		List<SummerTrip> paidRecords = query.getResultList();
-		
+
+		List<SummerTripEntity> paidRecords = query.getResultList();
+
 		return paidRecords;
-		
+
 	}
 	
-	/* public List<String> getPaidRecordsShirtSizes() {
+	public List<SummerTripEntity> getUserRecords() {
+
+		Session session = sessionFactory.getCurrentSession();
+
+		Query<SummerTripEntity> query = session.createQuery(
+				"from SummerTripEntity where user_id=:id", SummerTripEntity.class);
+		query.setParameter("id", getCurrentUserId());
+
+		List<SummerTripEntity> userRecords = query.getResultList();
+
+		return userRecords;
+	}
+	
+	public SummerTripEntity getRecord(int id) {
+
+		Session session = sessionFactory.getCurrentSession();
 		
-		List<SummerTrip> allRecords  = getAllRecords();
-		List<String> shirtSizesList = new ArrayList<>();
+		SummerTripEntity summerTripEntity = session.get(SummerTripEntity.class, id);
+
+		return summerTripEntity;
+	}
+	
+	public void addRecord(SummerTripEntity summerTripEntity) {
+
+		Session session = sessionFactory.getCurrentSession();
+
+		UserEntity userEntity = session.get(UserEntity.class, getCurrentUserId());
+		PaidEntity paidEntity = new PaidEntity("NO");
 		
-		for (SummerTrip temp : allRecords) {
-			
-			String paid = temp.getPaid().getPaid();
-			System.out.println(paid);
-			if (paid == "YES") {
-				shirtSizesList.add(paid);
-			}
-		}
+		summerTripEntity.setUser(userEntity);
 		
-		return shirtSizesList;
-	} */
+		paidEntity.setSummerTrip(summerTripEntity);
+
+		session.save(paidEntity);
+	}
+	
+	public void updateRecord(SummerTripEntity summerTrip, int id) {
+
+		Session session = sessionFactory.getCurrentSession();
+
+		UserEntity user = session.get(UserEntity.class, getCurrentUserId());
+		summerTrip.setUser(user);
+
+		session.update(summerTrip);
+	}
+	
+	public void updateRecord(SummerTripEntity summerTrip, int id, int userId) {
+
+		Session session = sessionFactory.getCurrentSession();
+
+		UserEntity user = session.get(UserEntity.class, userId);
+		summerTrip.setUser(user);
+
+		session.update(summerTrip);
+	}
 	
 	public void deleteRecord(int id) {
-		
+
 		Session session = sessionFactory.getCurrentSession();
-		SummerTrip summerTrip = session.get(SummerTrip.class, id);
-		Paid paid = summerTrip.getPaid();
-		session.delete(paid);
 		
+		SummerTripEntity summerTripEntity = session.get(SummerTripEntity.class, id);
+		PaidEntity paid = summerTripEntity.getPaid();
+		
+		session.delete(paid);
+
 	}
+	
+	public int getCurrentUserId() {
+
+		UserEntity user = userService.getUser(userService.getCurrentUserEmail());
+		
+		return user.getId();
+	}
+
 
 }
